@@ -1,8 +1,8 @@
 const cards = document.querySelector("#container");
 const button = document.querySelector("button");
-button.addEventListener("click", produto);
+button.addEventListener("click", showProducts);
 
-function produto() {
+function showProducts() {
 
     for (let id = 1; id < 21; id++) {
     console.log(id)
@@ -11,7 +11,7 @@ function produto() {
   fetch(`https://fakestoreapi.com/products/${id}`)
     .then((res) => res.json())
     .then((json) => {
-    const dadosProduto = json;
+    const productData = json;
     
     const card = document.createElement('div');
     card.setAttribute('class', `card${id}`);
@@ -20,16 +20,16 @@ function produto() {
     const imageDiv = document.createElement('div');
     card.appendChild(imageDiv);
     const image = document.createElement('img');
-    image.setAttribute('src', dadosProduto.image);
+    image.setAttribute('src', productData.image);
     imageDiv.appendChild(image);
     imageDiv.setAttribute('id', 'imageDiv');
 
     const title = document.createElement('h3');
-    title.innerText = dadosProduto.title;
+    title.innerText = productData.title;
     card.appendChild(title);
     
     const description = document.createElement('p');
-    description.innerText =  dadosProduto.description;
+    description.innerText =  productData.description;
     card.appendChild(description);
 
     const priceCategory = document.createElement('div');
@@ -38,10 +38,10 @@ function produto() {
     const price = document.createElement('p');
     const category = document.createElement('p');
 
-    price.innerText = '$ ' + dadosProduto.price;
+    price.innerText = '$ ' + productData.price;
     priceCategory.appendChild(price);
     
-    category.innerText = dadosProduto.category;
+    category.innerText = productData.category;
     priceCategory.appendChild(category);
 
   });
