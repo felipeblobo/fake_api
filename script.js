@@ -7,7 +7,6 @@ function showProducts() {
     for (let id = 1; id < 21; id++) {
     console.log(id)
   
-
   fetch(`https://fakestoreapi.com/products/${id}`)
     .then((res) => res.json())
     .then((json) => {
@@ -44,7 +43,7 @@ function showProducts() {
     category.innerText = productData.category;
     priceCategory.appendChild(category);
 
-  });
+  })
   }
 };
 
