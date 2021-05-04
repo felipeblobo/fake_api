@@ -5,10 +5,12 @@
 }
 
 body {
-  margin: 0 auto;
-  max-width: 60rem;
-  text-align: center;
+  
   background-color:#f6f6f6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
 }
 
@@ -51,6 +53,9 @@ button:hover::before {
   
 }
 
+#addProduct {
+  margin: 1rem 0 2rem 0;
+}
 
 
 #container {
@@ -129,14 +134,13 @@ h3 {
 
 /* form */
 
-
 form {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   background-color: #ffffff;
   max-width: 37.5rem;
-  height: 30rem;
+  height: 35rem;
   padding: 1rem 2rem;
   border: 1px solid #ffffff;
   box-shadow: 2px 2px 10px;
@@ -170,11 +174,13 @@ form h2 {
 
 .shortBlock {
   width: 47%;
+  
 }
 
-.shortBlock:first-of-type {
-  padding-right: 1rem;
+ #secondShortBlock {
+  padding-left: 2rem;
 }
+
 
 /* .break {
   flex-grow:unset;
@@ -204,4 +210,20 @@ input {
 
 input:focus {
   border:1.5px solid #19EDC3;
+}
+
+.buttonsDiv {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0;
+}
+
+#addProductButton {
+  margin-bottom: 1rem;
+}
+
+.hide {
+  display: none;
 }

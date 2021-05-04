@@ -1,16 +1,19 @@
 const cards = document.querySelector("#container");
-const button = document.querySelector("button");
+const button = document.querySelector("#productsButton");
 button.addEventListener("click", showProducts);
+const form = document.querySelector('form');
+const addProductButton = document.getElementById('addProductButton');
 
-function showProducts() {
+addProductButton.addEventListener("click", hideForm);
+
+async function showProducts() {
 
     for (let id = 1; id < 21; id++) {
     
-    fetch(`https://fakestoreapi.com/products/${id}`)
-    .then((res) => res.json())
-    .then((json) => {
-    const productData = json;
-    
+    const res = await fetch(`https://fakestoreapi.com/products/${id}`)
+    const productData = await res.json();
+    console.log(productData)
+        
     const card = document.createElement('div');
     card.setAttribute('class', `card${id}`);
     cards.appendChild(card);
@@ -42,9 +45,9 @@ function showProducts() {
     category.innerText = productData.category;
     priceCategory.appendChild(category);
 
-  })
   }
-};
+}
+
 
 function addProduct () {
   fetch('https://fakestoreapi.com/products',{
@@ -61,4 +64,8 @@ function addProduct () {
         })
             .then(res=>res.json())
             .then(json=>console.log(json))
+}
+
+function hideForm() {
+    form.classList.toggle('hide');
 }
