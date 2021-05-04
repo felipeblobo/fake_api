@@ -1,10 +1,12 @@
-const cards = document.querySelector("#container")
+const cards = document.querySelector("#container");
+const button = document.querySelector("button");
+button.addEventListener("click", produto);
 
-for (let id = 1; id < 21; id++) {
-  produto(id);
-  }
+function produto() {
 
-function produto(id) {
+    for (let id = 1; id < 21; id++) {
+    console.log(id)
+  
 
   fetch(`https://fakestoreapi.com/products/${id}`)
     .then((res) => res.json())
@@ -43,4 +45,7 @@ function produto(id) {
     priceCategory.appendChild(category);
 
   });
-}
+  }
+};
+
+
