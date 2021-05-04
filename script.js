@@ -5,9 +5,8 @@ button.addEventListener("click", showProducts);
 function showProducts() {
 
     for (let id = 1; id < 21; id++) {
-    console.log(id)
-  
-  fetch(`https://fakestoreapi.com/products/${id}`)
+    
+    fetch(`https://fakestoreapi.com/products/${id}`)
     .then((res) => res.json())
     .then((json) => {
     const productData = json;
@@ -47,4 +46,19 @@ function showProducts() {
   }
 };
 
-
+function addProduct () {
+  fetch('https://fakestoreapi.com/products',{
+            method:"POST",
+            body:JSON.stringify(
+                {
+                    title: '',
+                    price: '',
+                    description: '',
+                    image: '',
+                    category: ''
+                }
+            )
+        })
+            .then(res=>res.json())
+            .then(json=>console.log(json))
+}

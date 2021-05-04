@@ -11,6 +11,8 @@ body {
 
 }
 
+
+
 h1 {
   text-align: center;
   margin: 2rem;
@@ -18,13 +20,33 @@ h1 {
 
 button {
   padding: 1rem;
-  border: none;
-  background-color:rgb(2, 187, 162);
+  background-color:transparent; /*#02bba2;*/
+  border: 1px solid #02bba2;
   border-radius:5px;
-  color: #fff;
+  color: #000;
   font-size: 1.1rem;
   cursor: pointer;
+  position: relative;
 }
+
+button::before {
+  content: '';
+  width: 0%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background-color: #02bba2;
+  position: absolute;
+  transition: all .5s ease;
+}
+
+button:hover::before {
+  width: 100%;
+  color: #fff;
+}
+
+
 
 #container {
   display: flex;
@@ -37,14 +59,32 @@ button {
 }
 
 [class^="card"] {
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
   width: 25rem;
   height: 30rem;
-  background-color: #f0f0f0;
+  background-color: #f8f8f8;
   padding: 2rem;
   margin: 2rem;
   border-radius: 5px;
   box-shadow: 2px 2px 5px #000;
-  overflow: scroll;
+  overflow-Y: scroll;
+}
+
+
+[class^="card"]::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+
+[class^="card"]::-webkit-scrollbar-track {
+  background:#00a18c;        /* color of the tracking area */
+}
+
+[class^="card"]::-webkit-scrollbar-thumb {
+  background-color: #007566;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: none;  /* creates padding around scroll thumb */
 }
 
 
@@ -70,4 +110,9 @@ h3 {
   display: flex;
   font-size: 1.5rem;
   justify-content: space-between;
+}
+
+#priceCategory p:first-child {
+  color: #ff5900;
+  font-weight: bold;
 }
