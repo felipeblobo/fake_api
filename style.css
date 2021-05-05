@@ -11,6 +11,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: Georgia, serif;
 
 }
 
@@ -153,6 +154,7 @@ form h2 {
   color: #02bba2;
   font-weight: bold;
   margin-bottom: 1rem;
+  font-family: Georgia, serif;
 }
 
 
@@ -182,23 +184,13 @@ form h2 {
 }
 
 
-/* .break {
-  flex-grow:unset;
-  margin-right: 2rem;
-} */
-
-/* .break2 {
-  flex-shrink: 6;
-  margin-right: 2rem;
-} */
-
 label {
   display: block;
   margin-top: 1rem;
   margin-bottom: .5rem;
 }
 
-input {
+input, select {
   padding: .4rem;
   width: 100%;
   caret-color: #19EDC3;
@@ -206,6 +198,7 @@ input {
   outline: none;
   font-family: 'Open Sans Condensed', sans-serif;
   font-size: 16px;
+  
 }
 
 input:focus {
@@ -220,10 +213,32 @@ input:focus {
   margin: 0;
 }
 
-#addProductButton {
+#addProductButton, #productsButton {
   margin-bottom: 1rem;
 }
 
+
 .hide {
   display: none;
+}
+
+#newProductSave, #cancelNewProduct {
+  width: 8rem;
+  padding: .5rem;
+  margin: 1rem 1rem;
+  
+}
+
+#newProductSave:hover, #cancelNewProduct:hover {
+  filter: brightness(1);
+}
+
+#cancelNewProduct:hover::before, #cancelNewProduct:hover{
+  background-color: #fb2f28;
+  color:white;
+}
+
+textarea {
+  font-family: Georgia, serif;
+  padding: 1rem;
 }

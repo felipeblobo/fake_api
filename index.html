@@ -13,7 +13,7 @@
     <p id='quote'>"Falsidade é sempre um mal negócio." <strong>Cecília Meireles</strong> </p>
     <button id='addProductButton'>Adicionar Produto</button>
     
-    <form class='hide' action="">
+    <form id='productForm' class='hide' onsubmit="formValidation()">
       <div id="formTitle">
         <h2>Novo Produto</h2>
       </div>
@@ -25,7 +25,13 @@
      
       <div class="shortBlock">
         <label for="category">Categoria</label>
-        <input type="text" id="category" name="category" value="" required />
+        <select name="category" id="category">
+          <option value="electronics">electronics</option>
+          <option value="men's clothing">men's clothing</option>
+          <option value="jewelery">jewelery</option>
+          <option value="women's clothing">women's clothing</option>
+        
+        </select>
       </div>
 
       <div id="secondShortBlock" class="shortBlock">
@@ -35,16 +41,18 @@
 
       <div class="bigBlock">
         <label for="imageUrl">Imagem (URL)</label>
-        <input type="text" id="imageUrl" name="imageUrl" value="" required />
+        <input type="text" id="imageUrl" name="imageUrl" value="https://i.pravatar.cc" disabled />
       </div>
      
       <div class="bigBlock">
         <label for="description">Descrição</label>
-        <textarea name="description" id="description" cols="70" rows="8"></textarea>
+        <textarea name="description" id="description" cols="70" rows="8" required></textarea>
       </div>
+      
 
       <div class="buttonsDiv">
-        <button>Salvar</button>
+        <button type='reset' id='cancelNewProduct'>Cancelar</button>
+        <button onclick="formValidation(event)" type='submit' id='newProductSave'>Salvar</button>
       </div>
 
     </form>
